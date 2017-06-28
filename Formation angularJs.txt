@@ -80,6 +80,14 @@ si juste pour affichage : préfixer avec ::
 <div ng-model-options="{ allowInvalid: true, debounce: 200 }">
 
 
+---------------------------------------------
+*** Tests KARMA : tests unitaires, Protrator : test IHM
+---------------------------------------------
+
+Utilise Jasmine
+
+Protractor : possibilité d'utiliser Selenium Builder (extension Firefox)
+
 
 
 
