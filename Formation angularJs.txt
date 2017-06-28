@@ -1,0 +1,86 @@
+---------------------------------------------
+*** Formation angularJs
+---------------------------------------------
+
+- Visual Studio Code - ESLinter
+- Git (GitHub)
+- TortoiseGit : TortoiseGit-2.4.0.2-64bit
+
+- Node : node-v8.1.2-x64 - fournit npm
+
+
+Font-Awesome : Icones
+
+SourceMap : fait le lien entre le code minifié et le code js (utile pour débuger)
+
+---------------------------------------------
+*** Production
+---------------------------------------------
+
+webpack : fabrique les fichiers de prod pour le css et javascript
+	> Conf : webpack.config.js
+	> la commande "webpack" fabrique le livrable dans le dossier app/wpk
+
+Fabrication pour la prod : Gulp 
+
+Conf possible coté serveur avec META Tag des fichiers a recharger (pour que le client n'utilise pas de cache)
+	> browser-sync start -c bs-config.js
+
+---------------------------------------------
+*** Serveur
+---------------------------------------------
+
+npm start (lance node server.js)
+
+Express : Serveur
+	> config : server.js
+
+
+---------------------------------------------
+*** Rechargement auto : browsersync
+---------------------------------------------
+
+Utilisation de webpack-dev-middleware 
+	> Config dans server.js
+	> recharge le livrable de production automatiquement
+	
+
+https://www.browsersync.io/
+	> Définit un proxy, config : bs-config.js
+	> Lancement : browser-sync start -c bs-config.js
+
+	
+---------------------------------------------
+*** Services
+---------------------------------------------
+
+A utiliser : app.service
+
+	app.service('passwordHash', ['hash', '$log', function PasswordHash(hash, $log) {
+		this.hash = function(login, password) {
+			var r = hash.compute(login + password);
+			$log.debug('hash = ', r);
+			return r;
+		};
+	}]);
+	
+
+Provider : instancié a la phase de config, non modifiable par la suite
+
+
+---------------------------------------------
+*** Optimisation
+---------------------------------------------
+
+debounce : permet de différé la digestion, pour un ng-repeat
+
+si juste pour affichage : préfixer avec ::
+	>> ex : {{::name}}
+
+<div ng-model-options="{ allowInvalid: true, debounce: 200 }">
+
+
+
+
+
+
